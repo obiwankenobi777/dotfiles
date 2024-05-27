@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+df -h | grep sd
+echo -e
+lsblk
