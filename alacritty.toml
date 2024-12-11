@@ -1,0 +1,42 @@
+[env]
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[window]
+dimensions = { columns = 0, lines = 0 }
+title = "Alacritty"
+padding = { x = 5, y = 3 }
+dynamic_padding = true
+opacity = 0.70
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+normal = { family = "hasklug nerd font black", style = "Bold"}
+size = 12
+ 
+[colors]
+[colors.primary]
+foreground = "#ffffff"
+background = "#000000"
+
+[colors.normal]
+black = "#000000"
+red = "#ff0000"
+green = "#00ff00" 
+yellow = "#ffff00"
+blue = "#ffff00"
+magenta = "#ff00ff"
+cyan = "#00ffff"
+white = "#ffffff"
+
+[colors.bright] 
+black = "#808080"
+red = "#ff0000"
+green = "#00ff00"
+yellow = "#ffff00"
+blue = "#0000ff"
+magenta = "#ff00ff"
+cyan = "#00ffff"
+white = "#ffffff"

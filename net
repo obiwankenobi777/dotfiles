@@ -1,0 +1,11 @@
+#!/bin/bash
+
+nmcli device wifi list
+
+nmcli --ask device wifi connect
+
+echo -e
+
+nmcli
+
+echo -e

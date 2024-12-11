@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+unzip $1.zip -d $1
+
+if [ -d ./wallpaper/$1 ]
+then
+    rm -rf ./wallpaper/$1
+    mv ./$1 ./wallpaper/$1
+fi
+
+rm $1.zip
+rm *jpg *png *webp 
