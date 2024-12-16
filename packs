@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 echo -n "pacman -Q     ->   " && echo $(pacman -Q | wc -l)
 echo -n "pacman -Qtd   ->   " && echo $(pacman -Qtd | wc -l)
