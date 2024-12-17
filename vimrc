@@ -13,15 +13,16 @@ set relativenumber
 set mouse=n
 set incsearch
 set encoding=utf-8
-set textwidth=80
+set textwidth=79
 set cursorline
-set showtabline=2
+set showtabline=0
 set ruler
 set rulerformat=%15(%p%%\ %l/%L\ %c%V%)
 set laststatus=2
 set autowrite
 set background=dark
-color wildcharm
+color pablo
+
 
 "-----------------------------------------------------------------------------
 "MAPS
@@ -47,6 +48,5 @@ inoremap <c-d> <esc>ddi
 vmap \ ~
 
 "-----------------------------------------------------------------------------
-"testing commands
+"TESTING COMMANDS
 "-----------------------------------------------------------------------------
-"inoremap ( <esc>a()<esc>ba
