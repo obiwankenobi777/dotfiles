@@ -6,7 +6,7 @@ dimensions = { columns = 0, lines = 0 }
 title = "Alacritty"
 padding = { x = 5, y = 3 }
 dynamic_padding = true
-opacity = 0.70
+opacity = 0.77
 
 [scrolling]
 history = 10000

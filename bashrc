@@ -8,22 +8,18 @@
 #PS1='[\u@\h \W]\$ ' 
 PS1=' \W \$ '
 
-#me
+#btw... i use arch
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
     startx
 fi
 
 export PATH=/home/ian/.local/bin:$PATH
 
-alias main="nvim main.cpp"
-alias readme="nvim readme"
-alias index="nvim index.html"
-alias spy="cd ~/.code/spy/ && source ./bin/activate"
-alias ds="cd ~/.code/ds/"
-alias db="cd ~/.code/db/"
+
 alias code="cd ~/.code/"
+alias todo="vim todo"
+alias readme="vim readme"
 alias work="cd ~/work/"
-alias gamma="xgamma"
 alias light="xbacklight"
 alias disco="df -h | grep sda; echo -e; lsblk"
 alias path="echo $PATH | tr ':' '\n'"
@@ -36,15 +32,18 @@ alias remove="sudo pacman -Rsnc"
 alias hd="hexdump -C"
 alias ~="cd ~"
 alias ..="cd .."
-alias vimrc="nvim ~/.config/nvim/init.vim"
+alias termrc="(cd ~/.config/alacritty/ && nvim alacritty.toml)"
+alias vimrc="vim ~/.vimrc"
+alias nvimrc="nvim ~/.config/nvim/init.vim"
 alias bashrc="nvim ~/.bashrc"
 alias books="cd ~/books/"
 alias downloads="cd ~/downloads/"
-alias dotfiles="cd ~/.dotfiles/"
-alias suckless="cd ~/.suckless"
+alias dotfiles="cd ~/.config/dotfiles/"
+alias suckless="cd ~/.config/suckless/"
 alias config="nvim config.def.h"
 alias proc="ps aux | wc -l"
-alias v="nvim"
+alias v="vim"
+alias n="nvim"
 alias py="python3"
 alias ipy="ipython"
 alias sql="sqlite3"
