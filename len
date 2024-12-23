@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+count=0
+sum=0
+for i in $@; do
+    chars=${#i}
+    echo "[$((count + 1))] $i -> $chars"
+    sum=$((sum = sum + chars))
+    count=$((count = count + 1))
+done
+
+echo -e "\nwords -> $count"
+echo -e "characters -> $sum\n"
