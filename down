@@ -2,11 +2,15 @@
 
 unzip $1.zip -d $1
 
-if [ -d ./wallpaper/$1 ]
-then
+if [ ! -d ./wallpaper/$1 ]; then
+    echo "./wallaper/$1 doesn't exist!"
+    echo "Let's go creat it!"
+    mv -vf ./$1 ./wallpaper/$1
+else
     rm -rf ./wallpaper/$1
     mv ./$1 ./wallpaper/$1
 fi
 
 rm $1.zip
-rm *jpg *png *webp 
+
+rm *jpg *png *webp *jpeg
