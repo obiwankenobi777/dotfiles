@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$#" -eq 0 ]; then
+    echo "Argumentos Ausentes"
+    exit 1
+fi
+
+if [ -L $HOME/.local/bin/main ]; then
+    rm $HOME/.local/bin/main
+fi
+
+touch $1
+chmod +x $1
+ln -s $PWD/$1 $HOME/.local/bin/main
+vim $1

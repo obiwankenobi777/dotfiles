@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 count=0
 sum=0
