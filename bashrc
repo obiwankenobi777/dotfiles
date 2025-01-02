@@ -13,29 +13,29 @@ if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
     startx
 fi
 
+export XDG_CURRENT_DESKTOP=sway
 export PATH=/home/ian/.local/bin:$PATH
 
-
-alias code="cd ~/.code/"
-alias todo="vim todo"
+alias cl="clear"
 alias readme="vim readme"
+alias code="cd ~/.code/"
 alias work="cd ~/work/"
 alias light="xbacklight"
 alias disco="df -h | grep sda; echo -e; lsblk"
 alias path="echo $PATH | tr ':' '\n'"
 alias day="cal --week && date"
 alias cedila="setxkbmap -layout us -variant intl"
-alias fet="clear; neofetch"
 alias install="sudo pacman -S"
 alias update="sudo pacman -Syu"
 alias remove="sudo pacman -Rsnc"
 alias hd="hexdump -C"
 alias ~="cd ~"
 alias ..="cd .."
-alias termrc="(cd ~/.config/alacritty/ && nvim alacritty.toml)"
+alias swayrc="vim ~/.config/sway/config"
+alias termrc="vim ~/.config/alacritty/alacritty.toml"
 alias vimrc="vim ~/.vimrc"
 alias nvimrc="nvim ~/.config/nvim/init.vim"
-alias bashrc="nvim ~/.bashrc"
+alias bashrc="vim ~/.bashrc"
 alias books="cd ~/books/"
 alias downloads="cd ~/downloads/"
 alias dotfiles="cd ~/.config/dotfiles/"
