@@ -16,11 +16,12 @@ fi
 export XDG_CURRENT_DESKTOP=sway
 export PATH=/home/ian/.local/bin:$PATH
 
+alias fet="clear && neofetch" 
 alias cl="clear"
 alias readme="vim readme"
 alias code="cd ~/.code/"
 alias work="cd ~/work/"
-alias light="xbacklight"
+alias bright="brightnessctl"
 alias disco="df -h | grep sda; echo -e; lsblk"
 alias path="echo $PATH | tr ':' '\n'"
 alias day="cal --week && date"
