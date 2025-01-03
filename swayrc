@@ -35,6 +35,9 @@ input "type:keyboard" {
     # Start a terminal
     bindsym $mod+o exec $term
 
+    # Hide the bar: sway-bar
+    bindsym $mod+b exec "swaymsg bar bar-0 mode toggle"
+
     # Start brave browser
     bindsym $mod+a exec brave
 
