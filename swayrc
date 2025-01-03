@@ -1,9 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -21,46 +15,21 @@ set $term alacritty
 # Your preferred application launcher
 set $menu dmenu_path | dmenu -c -l 11 -bw 7 | xargs swaymsg exec --
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg /home/ian/downloads/wallpaper/arch/2.png fill
-#
-# Example configuration:
-#
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+gaps inner 7
+gaps outer 7
+for_window [class=".*"] border pixel none
+for_window [class=".*"] border pixel 5
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg /home/ian/downloads/wallpaper/arch/1.png fill
 
 ### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+input "type:keyboard" {
+    xkb_layout us
+    xkb_variant intl
+}
 
 ### Key bindings
-#
 # Basics:
 #
     # Start a terminal
@@ -99,7 +68,7 @@ output * bg /home/ian/downloads/wallpaper/arch/2.png fill
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
+
 # Moving around:
 #
     # Move your focus around
@@ -126,6 +95,9 @@ output * bg /home/ian/downloads/wallpaper/arch/2.png fill
 #
 # Workspaces:
 #
+    # Retorna para o workspace anterior
+    bindsym Mod4+Tab workspace back_and_forth
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -137,6 +109,7 @@ output * bg /home/ian/downloads/wallpaper/arch/2.png fill
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -150,20 +123,10 @@ output * bg /home/ian/downloads/wallpaper/arch/2.png fill
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    # bindsym $mod+b splith
-    # bindsym $mod+v splitv
-
-    # Switch the current container between different layout styles
-    # bindsym $mod+s layout stacking
-    # bindsym $mod+w layout tabbed
-    # bindsym $mod+e layout toggle split
-
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
@@ -173,8 +136,6 @@ output * bg /home/ian/downloads/wallpaper/arch/2.png fill
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
-    # Move focus to the parent container
-    # bindsym $mod+a focus parent
 #
 # Scratchpad:
 #
@@ -229,7 +190,6 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
-# Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
     font : hasklug nerd font mono black 11
@@ -237,7 +197,7 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%y/%m/%d %R'; do sleep 1; done
-
+    
     colors {
         statusline #ffffff
         background #000000
