@@ -1,3 +1,9 @@
+# For windows
+gaps inner 7
+gaps outer 7
+for_window [class=".*"] border pixel none
+for_window [class=".*"] border pixel 5
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -15,11 +21,6 @@ set $term alacritty
 # Your preferred application launcher
 set $menu dmenu_path | dmenu -c -l 11 -bw 7 | xargs swaymsg exec --
 
-gaps inner 7
-gaps outer 7
-for_window [class=".*"] border pixel none
-for_window [class=".*"] border pixel 5
-
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /home/ian/downloads/wallpaper/arch/1.png fill
 
@@ -31,7 +32,6 @@ input "type:keyboard" {
 
 ### Key bindings
 # Basics:
-#
     # Start a terminal
     bindsym $mod+o exec $term
 
@@ -45,7 +45,7 @@ input "type:keyboard" {
     bindsym $mod+s exec chromium
 
     # Start thunar
-    bindsym $mod+u exec thunar
+    # bindsym $mod+u exec thunar
 
     # Start evince
     bindsym $mod+e exec evince
@@ -71,7 +71,7 @@ input "type:keyboard" {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-
+#
 # Moving around:
 #
     # Move your focus around
@@ -99,7 +99,7 @@ input "type:keyboard" {
 # Workspaces:
 #
     # Retorna para o workspace anterior
-    bindsym Mod4+Tab workspace back_and_forth
+    bindsym $mod+Tab workspace back_and_forth
 
     # Switch to workspace
     bindsym $mod+1 workspace number 1
@@ -126,7 +126,6 @@ input "type:keyboard" {
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-
 #
 # Layout stuff:
 #
@@ -138,7 +137,6 @@ input "type:keyboard" {
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
-
 #
 # Scratchpad:
 #
@@ -189,17 +187,17 @@ bindsym $mod+r mode "resize"
 
     # Special key to take a screenshot with grim
     bindsym Print exec grim
-
 #
 # Status Bar:
 #
 bar {
     position bottom
-    font : hasklug nerd font mono black 11
+    font : hasklug nerd font mono black 10
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%y/%m/%d %R'; do sleep 1; done
+    #status_command while date +'%y/%m/%d %R'; do sleep 1; done;
+    status_command /home/ian/.config/sway/status
     
     colors {
         statusline #ffffff
