@@ -13,7 +13,7 @@ while true; do
     WIFI_SIGNAL=$(nmcli -t -f IN-USE,SIGNAL dev wifi | grep '^*' | cut -d':' -f2)
 
     # Status da bateria
-    BATTERY=$(acpi -b | awk '{print $4}' | sed 's/,//')
+    BATTERY=$(acpi -b | awk '{print $4 $5}' | sed 's/,/: /')
 
     # Formatação e saída
     echo "Temp: ${CPU_TEMP}C Wifi: $WIFI_SIGNAL% Bat: ${BATTERY} $DATE"
