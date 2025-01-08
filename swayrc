@@ -24,7 +24,6 @@ set $menu dmenu_path | dmenu -c -l 11 -bw 7 | xargs swaymsg exec --
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /home/ian/downloads/wallpaper/arch/1.png fill
 
-
 ### Input configuration
 input "type:keyboard" {
     xkb_layout us
@@ -55,7 +54,7 @@ input "type:keyboard" {
     bindsym $mod+F6 exec gammastep -l -5.0892:-42.8019 -g 1.44:1.22:0.765
 
     # Kill gammastep
-    # bindsym $mod+F5 exec gammastep -r #does not work
+     bindsym $mod+F5 exec pkill gammastep
 
     # Kill focused window
     bindsym $mod+Shift+c kill
