@@ -16,13 +16,14 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term alacritty
+set $term foot
 
 # Your preferred application launcher
 set $menu dmenu_path | dmenu -c -l 11 -bw 7 | xargs swaymsg exec --
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /home/ian/downloads/wallpaper/arch/1.png fill
+
 
 ### Input configuration
 input "type:keyboard" {
@@ -38,20 +39,23 @@ input "type:keyboard" {
     # Hide the bar: sway-bar
     bindsym $mod+b exec "swaymsg bar bar-0 mode toggle"
 
-    # Start brave browser
+    # Start brave 
     bindsym $mod+a exec brave
 
-    # Start chromium browser
+    # Start chromium
     bindsym $mod+s exec chromium
-
-    # Start thunar
-    # bindsym $mod+u exec thunar
 
     # Start evince
     bindsym $mod+e exec evince
 
     # Start pavucontrol
-    bindsym $mod+v exec pavucontrol -t 3    
+    bindsym $mod+n exec pavucontrol -t 3    
+
+    # Start gammastep
+    bindsym $mod+F6 exec gammastep -l -5.0892:-42.8019 -g 1.44:1.22:0.765
+
+    # Kill gammastep
+    # bindsym $mod+F5 exec gammastep -r #does not work
 
     # Kill focused window
     bindsym $mod+Shift+c kill
@@ -192,12 +196,9 @@ bindsym $mod+r mode "resize"
 #
 bar {
     position bottom
-    font : hasklug nerd font mono black 10
+    font : hasklug nerd font black 10
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    #status_command while date +'%y/%m/%d %R'; do sleep 1; done;
-    status_command /home/ian/.config/sway/status
+    status_command ~/.config/sway/status
     
     colors {
         statusline #ffffff
