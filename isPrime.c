@@ -4,18 +4,20 @@
 typedef struct {
     long long int *items;
     long long int top;
+    long long int capacity;
 } stack;
-static int initial = 2;
 
 stack init_stack(void);
 void push(stack *s, long long int i);
 void print_stack(stack *s);
+void free_stack(stack *s);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     if (argc < 2) {
         printf("Missing parameters!\n");
         return 1;
     }
+
     long long int number = atoll(argv[1]);
 
     stack div = init_stack();
@@ -37,24 +39,36 @@ int main(int argc, char* argv[]) {
     }
     putchar('\n');
 
+    free_stack(&div);
+
     return 0;
 }
 
 stack init_stack(void) {
     stack s;
     s.top  = 0;
-    s.items = (long long int*)malloc(initial * sizeof(long long int));
+    s.capacity = 2;
+    s.items = (long long int*)malloc(s.capacity * sizeof(long long int));
+
+    if (!s.items) {
+        printf("Memory allocation failure!\n");
+        exit(1);
+    }
 
     return s;
 }
 
 void push(stack *s, long long int i) {
-    s->items[s->top] = i;
-    s->top++;
-    if (s->top == initial - 1) {
-        initial += 2;
-        s->items = realloc(s->items, initial * sizeof(long long int));
-   } 
+    if (s->top == s->capacity) {
+        s->capacity *= 2;
+        s->items = realloc(s->items, s->capacity * sizeof(long long int));
+
+        if (!s->items) {
+        printf("Memory allocation failure!\n");
+        exit(1);
+        }
+    }
+    s->items[s->top++] = i;
 }
 
 void print_stack(stack *s) {
@@ -66,4 +80,9 @@ void print_stack(stack *s) {
         printf("%lld, ", s->items[i]);
     }
     printf("%lld]\n", s->items[i]);
+}
+
+void free_stack(stack *s) {
+    free(s->items);
+    s->items = NULL;
 }
