@@ -5,9 +5,10 @@ set shortmess+=I
 syntax on
 set tabstop=4
 set softtabstop=4
+set shiftwidth=4
+set expandtab
 set autoindent
 set smartindent
-set expandtab
 set number numberwidth=7
 set relativenumber
 set mouse=n
@@ -21,8 +22,7 @@ set rulerformat=%15(%p%%\ %l/%L\ %c%V%)
 set laststatus=2
 set autowrite
 set background=dark
-color pablo
-
+color retrobox
 
 "-----------------------------------------------------------------------------
 "MAPS
@@ -35,6 +35,10 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader> viw<esc>a"<esc>hbi"<esc>lel
 nnoremap \ dd
 nnoremap <space> viw
+
+"copy and paste
+nnoremap <leader>c "ayy
+nnoremap <leader>v "ap
 
 "INSERTION
 inoremap jk <esc>
@@ -50,3 +54,39 @@ vmap \ ~
 "-----------------------------------------------------------------------------
 "TESTING COMMANDS
 "-----------------------------------------------------------------------------
+
+" Função para inserir pares automáticos
+function! AutoPairs(char)
+    let pairs = {
+        \ '(': ')',
+        \ '[': ']',
+        \ '{': '}',
+        \ '"': '"',
+        \ "'": "'"
+        \ }
+
+    if has_key(pairs, a:char)
+        return a:char . pairs[a:char] . "\<Left>"
+    endif
+    return a:char
+endfunction
+
+" Função para pular caracteres de fechamento existentes
+function! SkipClosing(char)
+    let next_char = getline('.')[col('.')-1]
+    if next_char == a:char
+        return "\<Right>"
+    endif
+    return a:char
+endfunction
+
+" Mapeamentos para modo insert
+inoremap <expr> ( AutoPairs('(')
+inoremap <expr> [ AutoPairs('[')
+inoremap <expr> { AutoPairs('{')
+inoremap <expr> " AutoPairs('"')
+inoremap <expr> ' AutoPairs("'")
+inoremap <expr> ) SkipClosing(')')
+inoremap <expr> ] SkipClosing(']')
+inoremap <expr> } SkipClosing('}')
+
