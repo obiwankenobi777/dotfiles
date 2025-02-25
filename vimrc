@@ -54,7 +54,6 @@ vmap \ ~
 "-----------------------------------------------------------------------------
 "Autopairs
 "-----------------------------------------------------------------------------
-
 " Função para inserir pares automáticos
 function! AutoPairs(char)
     let pairs = {
@@ -90,3 +89,4 @@ inoremap <expr> ) SkipClosing(')')
 inoremap <expr> ] SkipClosing(']')
 inoremap <expr> } SkipClosing('}')
 
+"-----------------------------------------------------------------------------
